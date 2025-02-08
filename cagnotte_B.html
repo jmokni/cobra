@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cagnotte B</title>
+    <script>
+        function makeTableEditable() {
+            const table = document.getElementById("cagnotteB");
+            for (let i = 1; i < table.rows.length; i++) {
+                for (let j = 1; j < table.rows[i].cells.length - 2; j++) { // Exclut la colonne "Reste à rembourser"
+                    table.rows[i].cells[j].setAttribute("contenteditable", "true");
+                }
+            }
+        }
+
+        function calculerReste() {
+            const table = document.getElementById("cagnotteB");
+            for (let i = 1; i < table.rows.length; i++) {
+                let montantDemande = parseFloat(table.rows[i].cells[1].innerText) || 0;
+                let montantRembourse = parseFloat(table.rows[i].cells[2].innerText) || 0;
+                let nombreMois = parseInt(table.rows[i].cells[3].innerText) || 0;
+                let reste = montantDemande - (montantRembourse * nombreMois);
+                table.rows[i].cells[4].innerText = reste;
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Cagnotte B</h1>
-    <table border="1">
+    <table id="cagnotteB" border="1" oninput="calculerReste()">
         <tr>
             <th>Demandeur</th>
             <th>Montant demandé</th>
@@ -16,10 +37,21 @@
             <th>Reste à rembourser</th>
             <th>Fin du remboursement</th>
         </tr>
-        <tr><td>Jamel</td><td>150</td><td>50</td><td>3</td><td>150</td><td>Avril 2025</td></tr>
+        <tr><td>Mourad</td><td></td><td></td><td></td><td>0</td><td></td></tr>
+        <tr><td>Gaddour</td><td></td><td></td><td></td><td>0</td><td></td></tr>
+        <tr><td>Jamil</td><td></td><td></td><td></td><td>0</td><td></td></tr>
+        <tr><td>Gader</td><td></td><td></td><td></td><td>0</td><td></td></tr>
+        <tr><td>Najeh</td><td></td><td></td><td></td><td>0</td><td></td></tr>
+        <tr><td>Arifa</td><td></td><td></td><td></td><td>0</td><td></td></tr>
+        <tr><td>Moez</td><td></td><td></td><td></td><td>0</td><td></td></tr>
+        <tr><td>Biz</td><td></td><td></td><td></td><td>0</td><td></td></tr>
+        <tr><td>Nizar</td><td></td><td></td><td></td><td>0</td><td></td></tr>
+        <tr><td>Kermen</td><td></td><td></td><td></td><td>0</td><td></td></tr>
+        <tr><td>Jamel</td><td></td><td></td><td></td><td>0</td><td></td></tr>
     </table>
-    <p>Montant total de la cagnotte B: 2200 DT</p>
-    <p>Montant restant dans la cagnotte B: 2050 DT</p>
+    <p>Montant total de la cagnotte B: <span id="totalB">2200</span> DT</p>
+    <p>Montant restant dans la cagnotte B: <span id="restantB">2200</span> DT</p>
+    <button onclick="makeTableEditable()">Activer l'édition</button>
     <a href="index.html">Retour</a>
 </body>
 </html>
