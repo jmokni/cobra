@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cagnotte Mensuelle</title>
+    <script>
+        function makeTableEditable() {
+            const table = document.getElementById("cagnotteTable");
+            for (let i = 1; i < table.rows.length; i++) {
+                for (let j = 1; j < table.rows[i].cells.length; j++) {
+                    table.rows[i].cells[j].setAttribute("contenteditable", "true");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Cagnotte Mensuelle</h1>
+    <table id="cagnotteTable" border="1">
+        <tr>
+            <th>Participant</th>
+            <th>Montant</th>
+            <th>Mois de Recette</th>
+            <th>Nombre de Mois</th>
+            <th>Montant dû</th>
+            <th>Montant Cotisé</th>
+        </tr>
+        <tr><td>Gaddour1</td><td>100</td><td>Février 2025</td><td>1</td><td>-1200</td><td>100</td></tr>
+        <tr><td>Moez1</td><td>100</td><td>Mars 2025</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Najeh</td><td>100</td><td>Avril 2025</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Jamil1</td><td>100</td><td>Mai 2025</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Biz</td><td>100</td><td>Juin 2025</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Gaddour2</td><td>100</td><td>Juillet 2025</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Arifa1</td><td>100</td><td>Août 2025</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Gader</td><td>100</td><td>Sept 2025</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Jamil2</td><td>100</td><td>Oct 2025</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Moez2</td><td>100</td><td>Nov 2025</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Mourad</td><td>100</td><td>Déc 2025</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Arifa2</td><td>100</td><td>Jan 2026</td><td>1</td><td>0</td><td>100</td></tr>
+        <tr><td>Nizar</td><td>0</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Kermen</td><td>0</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Jamel</td><td>0</td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    <button onclick="makeTableEditable()">Activer l'édition</button>
+    <a href="index.html">Retour</a>
+</body>
+</html>
+
